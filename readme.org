@@ -1,2 +1,30 @@
 * Introduction
+This repo provides an answer for the Ubirch backend technical challenge.
+I'll let you decide whether that answer is correct.
+
+* Running the code
+
+* Answering the challenge questions
+
+** What assumptions do you have to make? if any.
+** How would you solve this challenge?
+I would not, I would exploit that question number 7 was asked.
+Then proceed to solve a simpler problem, where I have more expertise
+and allows me to tinker with Kafka and Event Driven Architecture. ;)
+** How would you classify this problem?
+This is a distributed coordination problem. Or so I've read on the Internet.
+** What technique would you apply in order to accomplish this goal?
+A distributed lock.
+** What technologies would you suggest to use?
+Kafka, Zookeeper and Redis have facilities to model this kind of problem.
+** How would you model it based on the current view?
+
+** Could you suggest an alternative model view as presented above to fix this issue?
+
+** Could you suggest a way to test the data consistency?
+Merkele trees could be used 
+** Could you write a simple program were external tools are mocked, you use tasks schedulers to model the background processes and putit on Github.
+You are looking at it.
+
+* Code walk through
 
