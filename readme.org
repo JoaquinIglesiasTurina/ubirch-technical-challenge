@@ -4,11 +4,30 @@ I'll let you decide whether that answer is correct.
 
 * Running the code
 
+=Docker= and =sbt= are required to run the code.
+All commands here are run on the project's root directory.
+
+There is a =docker-compose.yml= file on the root directory.
+It handles the containerized =Kafka= instance, which can be instantiated
+by running the following command.
+#+begin_src bash
+  docker-compose up
+#+end_src
+
+The following command actually runs the code.
+You might need to run it on a different terminal than the previous one,
+or do some ampersand shenanigans.
+#+begin_src bash
+  sbt run
+#+end_src
+And then you always have the option of running the code
+through your favorite IDE.
+
 * Answering the challenge questions
 
 ** What assumptions do you have to make? if any.
 ** How would you solve this challenge?
-I would not, I would exploit that question number 7 was asked.
+I would not. I would exploit that question number 7 was asked.
 Then proceed to solve a simpler problem, where I have more expertise
 and allows me to tinker with Kafka and Event Driven Architecture. ;)
 ** How would you classify this problem?
