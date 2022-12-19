@@ -22,9 +22,13 @@ Kafka, Zookeeper and Redis have facilities to model this kind of problem.
 ** Could you suggest an alternative model view as presented above to fix this issue?
 
 ** Could you suggest a way to test the data consistency?
-Merkele trees could be used 
-** Could you write a simple program were external tools are mocked, you use tasks schedulers to model the background processes and putit on Github.
-You are looking at it.
+Merkele trees could be used to provide cryptographical guarantees for data consistency.
+Each step of the computation could be modeled as a node of the tree.
+
+I've learnt about this while scouring Github for a cheat on this challenge.
+I hope there is bonus points for honesty.
+** Could you write a simple program were external tools are mocked, you use tasks schedulers to model the background processes and put it on Github.
+Maybe?
 
 * Code walk through
 
