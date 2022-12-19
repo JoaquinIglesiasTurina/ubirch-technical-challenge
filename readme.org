@@ -24,25 +24,25 @@ through your favorite IDE.
 
 * Answering the challenge questions
 
-** What assumptions do you have to make? if any.
+*** What assumptions do you have to make? if any.
 The largest assumption of this answer is that the problem can be solved using an
 event-driven / conveyor-belt architecture.
 
 This means the possibility of getting a callback to start the chain of events exists.
 
-** How would you solve this challenge?
+*** How would you solve this challenge?
 I would not. I would exploit that question number 7 was asked.
 Then proceed to solve a simpler problem, where I have more expertise
 and allows me to tinker with Kafka and Event Driven Architecture. ;)
 
-** How would you classify this problem?
+*** How would you classify this problem?
 There are several instances polling and tyring to modify a centralized database.
 This is a distributed coordination problem. Or [[https://medium.com/@lalitadithya/everything-ive-learnt-about-distributed-locking-so-far-1f1569e6df5][so]] I've [[https://old.reddit.com/r/microservices/comments/9e2wzb/avoid_duplicate_work_while_scaling_microservices/][read on]] the [[https://martin.kleppmann.com/2016/02/08/how-to-do-distributed-locking.html][Internet]].
 
-** What technique would you apply in order to accomplish this goal?
+*** What technique would you apply in order to accomplish this goal?
 A distributed lock.
 
-** What technologies would you suggest to use?
+*** What technologies would you suggest to use?
 Kafka, [[https://zookeeper.apache.org/doc/current/recipes.html#sc_recipes_Locks][Zookeeper]] and Redis have facilities to model this kind of problem.
 Based on the [[https://martin.kleppmann.com/2016/02/08/how-to-do-distributed-locking.html][cited sources]], Zookeeper has the better set of features,
 allowing for fencing and time based consensus solving.
@@ -50,13 +50,13 @@ allowing for fencing and time based consensus solving.
 But yet again, my suggestion is to avoid global state management,
 and use Kafka with an event-driven architecture.
 
-** How would you model it based on the current view?
+*** How would you model it based on the current view?
 - An object handling each of the processes business logic.
 - A piece of global logic, handling the case that a particular resource is locked.
   If an instance is trying to access a locked resource for process =A=, it may
   be worth while to cancel the attempt and what for the next schedule to fire.
 
-** Could you suggest an alternative model view as presented above to fix this issue?
+*** Could you suggest an alternative model view as presented above to fix this issue?
 An event-driven / conveyor-belt architecture may solve this issue is a simpler way.
 Rather than polling the data-base and using a distributed lock service to coordinate instances,
 We could use a messaging service to communicate the state of different processes between instances.
@@ -65,7 +65,7 @@ Under this approach, the code running on each instance is stateless, there is no
 distributed lock logic nor for any other global state.
 This should make code more testable and easier to reason about, is =reasonable= a word in English?
 
-** Could you suggest a way to test the data consistency?
+*** Could you suggest a way to test the data consistency?
 Merkle trees could be used to provide cryptographical guarantees for data consistency.
 Each step of the computation could be modeled as a node of the tree, and thus, cryptographically audited.
 
