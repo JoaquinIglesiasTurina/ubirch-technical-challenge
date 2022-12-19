@@ -3,7 +3,6 @@ This repo provides an answer for the Ubirch backend technical challenge.
 I'll let you decide whether that answer is correct.
 
 * Running the code
-
 =Docker= and =sbt= are required to run the code.
 All commands here are run on the project's root directory.
 
@@ -38,13 +37,18 @@ and allows me to tinker with Kafka and Event Driven Architecture. ;)
 
 ** How would you classify this problem?
 There are several instances polling and tyring to modify a centralized database.
-This is a distributed coordination problem. Or so I've read on the Internet.
+This is a distributed coordination problem. Or [[https://medium.com/@lalitadithya/everything-ive-learnt-about-distributed-locking-so-far-1f1569e6df5][so]] I've [[https://old.reddit.com/r/microservices/comments/9e2wzb/avoid_duplicate_work_while_scaling_microservices/][read on]] the [[https://martin.kleppmann.com/2016/02/08/how-to-do-distributed-locking.html][Internet]].
 
 ** What technique would you apply in order to accomplish this goal?
 A distributed lock.
 
 ** What technologies would you suggest to use?
-Kafka, Zookeeper and Redis have facilities to model this kind of problem.
+Kafka, [[https://zookeeper.apache.org/doc/current/recipes.html#sc_recipes_Locks][Zookeeper]] and Redis have facilities to model this kind of problem.
+Based on the [[https://martin.kleppmann.com/2016/02/08/how-to-do-distributed-locking.html][cited sources]], Zookeeper has the better set of features,
+allowing for fencing and time based consensus solving.
+
+But yet again, my suggestion is to avoid global state management,
+and use Kafka with an event-driven architecture.
 
 ** How would you model it based on the current view?
 - An object handling each of the processes business logic.
@@ -65,7 +69,7 @@ This should make code more testable and easier to reason about, is =reasonable= 
 Merkle trees could be used to provide cryptographical guarantees for data consistency.
 Each step of the computation could be modeled as a node of the tree, and thus, cryptographically audited.
 
-I've learnt about this while scouring Github for a cheat on this challenge.
+I've learnt about [[https://github.com/ubirch/ubirch-event-log][this]] while scouring Github for a cheat on this challenge.
 I hope there is bonus points for honesty.
 ** Could you write a simple program were external tools are mocked, you use tasks schedulers to model the background processes and put it on Github.
 You are looking at it.
